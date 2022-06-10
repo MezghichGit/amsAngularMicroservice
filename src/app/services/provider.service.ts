@@ -22,4 +22,16 @@ export class ProviderService {
   {
     return this.http.post(this.urlProviders,provider);
   }
+
+  getProviderById(providerId:any)
+  {
+    return this.http.get(this.urlProviders+providerId);
+  }
+
+  updateProvider(provider:any)
+  {
+    return this.http.put(this.urlProviders+provider["id"],provider);
+  }
+
+
 }

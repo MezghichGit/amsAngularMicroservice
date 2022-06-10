@@ -1,1 +1,20 @@
-<p>update-provider works!</p>
+<h1 align="center">Mise à jour d'un provider</h1>
+
+  <div class="container" >
+    <div class="row" >
+      <div class="col-6">
+      <div class="form-group">
+        <label for="providername">Provider name</label>
+        <input [(ngModel)]="nom" class="form-control" id="providername">
+      </div>
+      <div class="form-group">
+        <label for="provideraddress">Provider address</label>
+        <input [(ngModel)]="address" class="form-control" id="provideraddress">
+      </div>
+
+      <button class="btn btn-success" (click)="updateProvider()">Mettre à jour</button>
+    </div>
+    </div>
+  </div>
+
+

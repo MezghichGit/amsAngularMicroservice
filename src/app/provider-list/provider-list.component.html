@@ -5,7 +5,7 @@
   <td>{{provider.id}}</td>
   <td>{{provider.name}}</td>
   <td>{{provider.address}}</td>
-  <td><button class="btn btn-warning" >Modifier</button></td>
+  <td><button class="btn btn-warning" (click)="updateProvider(provider)">Modifier</button></td>
   <td><button class="btn btn-danger" (click)="deleteProvider(provider)">Supprimer</button></td>
 </tr>
 

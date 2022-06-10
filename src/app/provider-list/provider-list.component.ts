@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {ProviderService} from '../services/provider.service';
+import { Router } from '@angular/router';
+import { ProviderService } from '../services/provider.service';
 @Component({
   selector: 'app-provider-list',
   templateUrl: './provider-list.component.html',
@@ -7,28 +8,32 @@ import {ProviderService} from '../services/provider.service';
 })
 export class ProviderListComponent implements OnInit {
 
-  constructor(private serviceProvider:ProviderService) { }
+  constructor(private serviceProvider: ProviderService, private router: Router) { }
 
-  providers:any;
+  providers: any;
   ngOnInit(): void {
 
-this.refreshListProviders();
+    this.refreshListProviders();
   }
-refreshListProviders(){
-  this.serviceProvider.getProviders().subscribe(
-    data=>{
-      this.providers = data;
-    }
-  );
-}
-  deleteProvider(provider:any)
-  {
-      console.log(provider);
-      this.serviceProvider.deleteProvider(provider).subscribe(
-        data =>
-        {
-          this.refreshListProviders();
-        }
-      );
+  refreshListProviders() {
+    this.serviceProvider.getProviders().subscribe(
+      data => {
+        this.providers = data;
+      }
+    );
   }
+  deleteProvider(provider: any) {
+    console.log(provider);
+    this.serviceProvider.deleteProvider(provider).subscribe(
+      data => {
+        this.refreshListProviders();
+      }
+    );
+  }
+
+  updateProvider(provider: any) {
+
+    this.router.navigate(['updateProvider' + '/' + provider['id']]);
+  }
+
 }
