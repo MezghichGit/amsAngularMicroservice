@@ -1,0 +1,10 @@
+<h2>Liste des providers ici</h2>
+<table align="center" border="1">
+<tr><th>ID</th><th>Name</th><th>Address</th></tr>
+<tr *ngFor="let provider of providers">
+  <td>{{provider.id}}</td>
+  <td>{{provider.name}}</td>
+  <td>{{provider.address}}</td>
+</tr>
+
+</table>
