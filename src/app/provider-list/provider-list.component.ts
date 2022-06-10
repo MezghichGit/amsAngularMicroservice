@@ -17,7 +17,6 @@ this.refreshListProviders();
 refreshListProviders(){
   this.serviceProvider.getProviders().subscribe(
     data=>{
-      //console.log(data);
       this.providers = data;
     }
   );
@@ -29,8 +28,6 @@ refreshListProviders(){
         data =>
         {
           this.refreshListProviders();
-         // console.log("Deleted");
-         // console.log(data);
         }
       );
   }
