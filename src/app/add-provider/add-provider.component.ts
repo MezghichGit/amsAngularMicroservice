@@ -12,4 +12,9 @@ export class AddProviderComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  addProvider(myForm:any){
+        alert(myForm.value.nom+" "+myForm.value.address);
+
+  }
+
 }

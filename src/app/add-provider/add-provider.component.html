@@ -1,1 +1,10 @@
 <h1 align="center">Ajouter nouveau provider</h1>
+
+<form #myForm="ngForm" (ngSubmit)="addProvider(myForm)">
+
+  Name:<input ngModel type="text" name="nom"/>
+  Address : <input ngModel type="text" name="address"/>
+
+  <input type="submit" class="btn btn-success" value="Ajouter"/>
+
+</form>
