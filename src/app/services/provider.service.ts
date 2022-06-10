@@ -13,4 +13,9 @@ export class ProviderService {
   getProviders(){
     return this.http.get(this.urlProviders);
   }
+
+  deleteProvider(provider:any)
+  {
+    return this.http.delete(this.urlProviders+provider.id);
+  }
 }

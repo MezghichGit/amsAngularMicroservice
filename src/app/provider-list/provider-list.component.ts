@@ -12,12 +12,26 @@ export class ProviderListComponent implements OnInit {
   providers:any;
   ngOnInit(): void {
 
-    this.serviceProvider.getProviders().subscribe(
-      data=>{
-        //console.log(data);
-        this.providers = data;
-      }
-    );
+this.refreshListProviders();
   }
-
+refreshListProviders(){
+  this.serviceProvider.getProviders().subscribe(
+    data=>{
+      //console.log(data);
+      this.providers = data;
+    }
+  );
+}
+  deleteProvider(provider:any)
+  {
+      console.log(provider);
+      this.serviceProvider.deleteProvider(provider).subscribe(
+        data =>
+        {
+          this.refreshListProviders();
+         // console.log("Deleted");
+         // console.log(data);
+        }
+      );
+  }
 }
