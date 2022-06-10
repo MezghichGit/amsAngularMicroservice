@@ -18,4 +18,8 @@ export class ProviderService {
   {
     return this.http.delete(this.urlProviders+provider.id);
   }
+  addProvider(provider:any)
+  {
+    return this.http.post(this.urlProviders,provider);
+  }
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Router } from '@angular/router';
+import { ProviderService } from '../services/provider.service';
 @Component({
   selector: 'app-add-provider',
   templateUrl: './add-provider.component.html',
@@ -7,14 +8,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddProviderComponent implements OnInit {
 
-  constructor() { }
+  constructor(private serviceProvider: ProviderService, private router:Router) { }
 
   ngOnInit(): void {
   }
 
-  addProvider(myForm:any){
-        alert(myForm.value.nom+" "+myForm.value.address);
+  addProvider(myForm: any) {
+    //alert(myForm.value.nom+" "+myForm.value.address);
 
+    let provider = {
+      "name": myForm.value.nom,
+      "address": myForm.value.address
+    }
+
+    this.serviceProvider.addProvider(provider).subscribe(
+      data =>
+      this.router.navigate(["/listProvider"])
+
+    );
   }
-
 }
